@@ -733,12 +733,13 @@ class CallBack{
     info+=" port:";
     info+=std::to_string(_port);
     info+="---------------------";
+  
     LOG(INFO,info);
       
       EndPoint*ep=new EndPoint(fd);
       ep->RecvRequest();
       if(!ep->IsStop()){
-        ep->BuiltHttpResponse();
+       ep->BuiltHttpResponse();
         ep->SendHttpResponse();
         LOG(INFO,"BuiltHttpResponse && SendHttpResponse Success!");
       }
